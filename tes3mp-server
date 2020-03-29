@@ -1,0 +1,7 @@
+#!/bin/bash
+
+WRAPPER="$(basename $0)"
+GAMEDIR="$(dirname $0)"
+cd "$GAMEDIR"
+if test -f ./tes3mp-prelaunch; then bash ./tes3mp-prelaunch "$WRAPPER"; fi
+LD_LIBRARY_PATH="./lib" ./tes3mp-server.armv7l "$@"

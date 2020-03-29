@@ -1,0 +1,39 @@
+#!/bin/bash
+
+ARGS="$*"
+GAMEDIR="$(cd "$(dirname "$0")"; pwd -P)"
+TES3MP_HOME="$HOME/.config/openmw"
+
+# If there are config files in the home directory, load those
+# Otherwise check the package/installation directory and load those
+# Otherwise copy them to the home directory
+if [[ "$ARGS" = 'tes3mp-server' ]]; then
+    if [[ -f "$TES3MP_HOME"/tes3mp-server.cfg ]]; then
+        echo -e "Loading server config from the home directory"
+        LOADING_FROM_HOME=true
+    elif [[ -f "$GAMEDIR"/tes3mp-server-default.cfg ]]; then
+        echo -e "Loading server config from the package directory"
+    else
+        echo -e "Server config not found in home and package directory, trying to copy from .example"
+        cp -f tes3mp-server-default.cfg.example "$TES3MP_HOME"/tes3mp-server.cfg
+        LOADING_FROM_HOME=true
+    fi
+    if [[ $LOADING_FROM_HOME ]]; then
+        if [[ -d "$TES3MP_HOME"/CoreScripts ]]; then
+            echo -e "Loading CoreScripts folder from the home directory"
+        else
+            echo -e "CoreScripts folder not found in home directory, copying from package directory"
+            cp -rf "$GAMEDIR"/CoreScripts/ "$TES3MP_HOME"/
+            sed -i "s|home = .*|home = $TES3MP_HOME/CoreScripts |g" "$TES3MP_HOME"/tes3mp-server.cfg
+        fi
+    fi
+else
+    if [[ -f $TES3MP_HOME/tes3mp-client.cfg ]]; then
+        echo -e "Loading client config from the home directory"
+    elif [[ -f tes3mp-client-default.cfg ]]; then
+        echo -e "Loading client config from the package directory"
+    else
+        echo -e "Client config not found in home and package directory, trying to copy from .example"
+        cp -f "$GAMEDIR"/tes3mp-client-default.cfg.example "$TES3MP_HOME"/tes3mp-client.cfg
+    fi
+fi

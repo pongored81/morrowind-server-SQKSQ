@@ -1,0 +1,1 @@
+TES3MP 0.7.0-alpha (abc4090a0f 01d297f5c6) built on GNU+Linux armv7l (debian) on 2019-05-21 by  (9b1c9a06fa72)

@@ -1,0 +1,13 @@
+# This is the global openmw.cfg file. Do not modify!
+# Modifications should be done on the user openmw.cfg file instead
+# (see: https://wiki.openmw.org/index.php?title=Paths)
+
+data=/usr/local/share/games/openmw/data
+data-local="?userdata?data"
+resources=/usr/local/share/games/openmw/resources
+script-blacklist=Museum
+script-blacklist=MockChangeScript
+script-blacklist=doortestwarp
+script-blacklist=WereChange2Script
+script-blacklist=wereDreamScript2
+script-blacklist=wereDreamScript3
