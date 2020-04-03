@@ -8,7 +8,7 @@ CellReset.defaultConfig = {
     timeRate = 60,
     useGameTime = true,
     command = {
-        staffRank = 2,
+        staffRank = 0,
         rankError = "You are not an admin!\n",
         excludeMessage = "\"%s\" will not be reset anymore!\n",
         includeMessage = "\"%s\" will be reset normally now!\n",
@@ -78,7 +78,7 @@ function CellReset.needsReset(cellDescription)
         if data == nil then
             CellReset.updateCell(cellDescription)
         end
-    
+
         local passedTime = 0
 
         if CellReset.config.useGameTime then
@@ -100,7 +100,7 @@ function CellReset.resetCell(cellDescription)
     local cell = Cell(cellDescription)
 
     local cellFilePath = CellReset.cellDir .. cell.entryFile
-    
+
     if tes3mp.DoesFileExist(cellFilePath) then
         cell:LoadFromDrive()
 
@@ -173,7 +173,7 @@ function CellReset.Command(pid, cmd)
         else
             cellDescription = tes3mp.GetCell(pid)
         end
-        
+
         if cmd[2] == "exclude" then
             tes3mp.SendMessage(pid, string.format(CellReset.config.command.excludeMessage, cellDescription))
             CellReset.exclude(cellDescription)
@@ -190,7 +190,7 @@ function CellReset.Command(pid, cmd)
         tes3mp.SendMessage(pid, CellReset.config.rankError)
     end
 end
-    
+
 customCommandHooks.registerCommand("cellreset", CellReset.Command)
 
 return CellReset

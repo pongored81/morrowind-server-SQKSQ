@@ -3,7 +3,7 @@
 -- require("custom/yourScript")
 --
 -- Refer to the Tutorial.md file for information on how to use various event and command hooks in your scripts.
-require("custom/DataManager.lua")
-require("custom/CellReset.lua")
-require("custom/VisualHarvesting.lua")
-require("custom/lear/trueDisableAssassins.lua")
+require("custom/DataManager/Main")
+require("custom/CellReset/Main")
+require("custom/VisualHarvesting/Main")
+require("custom/lear/trueDisableAssassins")
