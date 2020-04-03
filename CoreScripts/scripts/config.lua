@@ -9,7 +9,7 @@ config.loginTime = 60
 -- The difficulty level used by default
 -- Note: In OpenMW, the difficulty slider goes between -100 and 100, with 0 as the default,
 --       though you can use any integer value here
-config.difficulty = 0
+config.difficulty = 25
 
 -- The world time used for a newly created world
 config.defaultTimeTable = { year = 427, month = 7, day = 16, hour = 9,
@@ -35,37 +35,37 @@ config.allowConsole = false
 config.allowBedRest = true
 
 -- Whether players should be allowed to rest in the wilderness by default
-config.allowWildernessRest = true
+config.allowWildernessRest = false
 
 -- Whether players should be allowed to wait by default
-config.allowWait = true
+config.allowWait = false
 
 -- Whether journal entries should be shared across the players on the server or not
-config.shareJournal = true
+config.shareJournal = false
 
 -- Whether faction ranks should be shared across the players on the server or not
-config.shareFactionRanks = true
+config.shareFactionRanks = false
 
 -- Whether faction expulsion should be shared across the players on the server or not
 config.shareFactionExpulsion = false
 
 -- Whether faction reputation should be shared across the players on the server or not
-config.shareFactionReputation = true
+config.shareFactionReputation = false
 
 -- Whether dialogue topics should be shared across the players on the server or not
-config.shareTopics = true
+config.shareTopics = false
 
 -- Whether crime bounties should be shared across players on the server or not
 config.shareBounty = false
 
 -- Whether reputation should be shared across players on the server or not
-config.shareReputation = true
+config.shareReputation = false
 
 -- Whether map exploration should be shared across players on the server or not
 config.shareMapExploration = false
 
 -- Whether ingame videos should be played for other players when triggered by one player
-config.shareVideos = true
+config.shareVideos = false
 
 -- The cell that newly created players are teleported to
 config.defaultSpawnCell = "-3, -2"
